@@ -25,7 +25,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Character Image - Centered */}
+        {/* Character Image - Shshifted right to center the character himself */}
         <div className="flex justify-center items-center relative z-10 w-full">
           <Image
             src="/image2.png"
@@ -33,7 +33,7 @@ export default function Home() {
             width={800}
             height={320}
             priority
-            className="w-[200%] max-w-none md:w-[250%] h-auto object-contain shrink-0"
+            className="w-[200%] max-w-none md:w-[250%] h-auto object-contain shrink-0 relative left-[25%] md:left-[20%]"
           />
         </div>
 
