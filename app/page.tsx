@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-background overflow-x-hidden">
       <div className="w-full max-w-2xl text-center relative flex flex-col items-center">
-        {/* Welcome Message Box - Moved up and changed to Brand Blue */}
+        {/* Welcome Message Box - Moved up more */}
         <div 
-          className="w-[90%] md:w-[75%] border-2 rounded-[2.5rem] p-6 md:p-8 mb-[-3rem] md:mb-[-4rem] relative z-0"
+          className="w-[90%] md:w-[75%] border-2 rounded-[2.5rem] p-6 md:p-8 mb-[-1.5rem] md:mb-[-2rem] relative z-0"
           style={{ 
             backgroundColor: `${brandBlue}10`, // 10% opacity
             borderColor: `${brandBlue}20`      // 20% opacity
@@ -25,7 +25,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Character Image - 200% width on mobile, shifted left slightly */}
+        {/* Character Image - 200% width on mobile, nudged right slightly */}
         <div className="flex justify-center items-center relative z-10 w-full">
           <Image
             src="/image2.png"
@@ -33,7 +33,7 @@ export default function Home() {
             width={800}
             height={320}
             priority
-            className="w-[200%] max-w-none md:w-[250%] h-auto object-contain shrink-0 relative left-20 md:left-0"
+            className="w-[200%] max-w-none md:w-[250%] h-auto object-contain shrink-0 relative left-24 md:left-0"
           />
         </div>
 
