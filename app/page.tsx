@@ -25,20 +25,20 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Character Image - Centered and overlapping the box bottom */}
-        <div className="flex justify-center relative z-10">
+        {/* Character Image - Centered and constrained to button width */}
+        <div className="flex justify-center relative z-10 w-full overflow-hidden">
           <Image
             src="/image2.png"
             alt="Welcome Character"
             width={800}
             height={320}
             priority
-            className="w-[160%] max-w-none md:w-full h-auto"
+            className="w-full max-w-xs h-auto object-contain"
           />
         </div>
 
         {/* Start Button */}
-        <div className="flex justify-center -mt-8 md:mt-0 relative z-20 w-full">
+        <div className="flex justify-center -mt-1 relative z-20 w-full">
           <Link
             href="/signup"
             className="inline-block w-full max-w-xs px-8 py-4 text-lg font-semibold text-primary-foreground bg-primary rounded-full shadow-lg shadow-primary/20 transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
