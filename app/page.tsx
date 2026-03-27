@@ -25,7 +25,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Character Image - 3x Larger and Centered */}
+        {/* Character Image - 2/3 of previous mobile size */}
         <div className="flex justify-center relative z-10 w-full">
           <Image
             src="/image2.png"
@@ -33,12 +33,12 @@ export default function Home() {
             width={800}
             height={320}
             priority
-            className="w-[300%] max-w-none md:w-[250%] h-auto object-contain"
+            className="w-[200%] max-w-none md:w-[250%] h-auto object-contain"
           />
         </div>
 
         {/* Start Button */}
-        <div className="flex justify-center -mt-16 md:-mt-24 relative z-20 w-full">
+        <div className="flex justify-center -mt-10 md:-mt-24 relative z-20 w-full">
           <Link
             href="/signup"
             className="inline-block w-full max-w-xs px-8 py-4 text-lg font-semibold text-primary-foreground bg-primary rounded-full shadow-lg shadow-primary/20 transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
