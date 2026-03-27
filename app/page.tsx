@@ -25,7 +25,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Character Image - 200% width on mobile, shifted left */}
+        {/* Character Image - 200% width on mobile, shifted right */}
         <div className="flex justify-center items-center relative z-10 w-full">
           <Image
             src="/image2.png"
@@ -33,7 +33,7 @@ export default function Home() {
             width={800}
             height={320}
             priority
-            className="w-[200%] max-w-none md:w-[250%] h-auto object-contain shrink-0 relative -left-8 md:left-0"
+            className="w-[200%] max-w-none md:w-[250%] h-auto object-contain shrink-0 relative left-24 md:left-0"
           />
         </div>
 
