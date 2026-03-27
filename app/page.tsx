@@ -18,7 +18,7 @@ export default function Home() {
           }}
         >
           <h1 className="text-2xl md:text-4xl font-bold leading-tight" style={{ color: brandBlue }}>
-            Welcome! Let's get your gift.
+            Welcome! Let's get your gift 🎁
           </h1>
           <p className="text-lg md:text-xl opacity-70 mt-2" style={{ color: brandBlue }}>
             It takes 10 seconds.
@@ -33,7 +33,7 @@ export default function Home() {
             width={800}
             height={320}
             priority
-            className="w-[200%] max-w-none md:w-[250%] h-auto object-contain shrink-0 relative left-24 md:left-0"
+            className="w-[200%] max-w-none md:w-[250%] h-auto object-contain shrink-0 relative left-32 md:left-0"
           />
         </div>
 
