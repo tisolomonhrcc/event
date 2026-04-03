@@ -57,48 +57,54 @@ export default function SignupPage() {
         throw new Error('Failed to fetch gifts');
       }
 
-      const hairBand = gifts.find(g => g.name === 'Branded hair band');
-      const tissue = gifts.find(g => g.name === 'Branded tissue');
+      const hairBand = gifts.find(g => g.name === 'hair band');
+      const tissue = gifts.find(g => g.name === 'tissue');
 
       if (!hairBand || !tissue) {
         throw new Error('Gifts not configured correctly');
       }
 
-      // 2. Determine Gift
-      let assignedGift = null;
+      // 2. Determine Possible Gifts for this user
+      let possibleGifts = [];
       
-      if (formData.gender === 'Male') {
-        if (hairBand.men_given < 20 && hairBand.remaining_stock > 0) {
-          assignedGift = hairBand;
-        } else if (tissue.remaining_stock > 0) {
-          assignedGift = tissue;
-        }
-      } else {
-        // Female
-        const womenLimit = hairBand.total_stock - hairBand.max_for_men; // 80
-        const womenGiven = hairBand.total_stock - hairBand.remaining_stock - hairBand.men_given;
-        
-        if (womenGiven < womenLimit && hairBand.remaining_stock > 0) {
-          assignedGift = hairBand;
-        } else if (tissue.remaining_stock > 0) {
-          assignedGift = tissue;
+      // Check if hair band is an option
+      if (hairBand.remaining_stock > 0) {
+        if (formData.gender === 'Male') {
+          if (hairBand.men_given < 20) {
+            possibleGifts.push(hairBand);
+          }
+        } else {
+          // Female
+          const womenLimit = hairBand.total_stock - hairBand.max_for_men; // 80
+          const womenGiven = hairBand.total_stock - hairBand.remaining_stock - hairBand.men_given;
+          if (womenGiven < womenLimit) {
+            possibleGifts.push(hairBand);
+          }
         }
       }
 
-      if (!assignedGift) {
+      // Check if tissue is an option
+      if (tissue.remaining_stock > 0) {
+        possibleGifts.push(tissue);
+      }
+
+      if (possibleGifts.length === 0) {
         setError('we are currently out of stock. Kindly contact the administrator');
         setLoading(false);
         return;
       }
 
+      // Randomly pick from possible gifts
+      const assignedGift = possibleGifts[Math.floor(Math.random() * possibleGifts.length)];
+
       const ticketCode = generateTicketCode();
 
-      // 3. Update stock and insert signup in a simple sequence (ideally should be a transaction)
+      // 3. Update stock and insert signup
       const { error: stockError } = await supabase
         .from('gifts')
         .update({
           remaining_stock: assignedGift.remaining_stock - 1,
-          men_given: formData.gender === 'Male' && assignedGift.name === 'Branded hair band' 
+          men_given: formData.gender === 'Male' && assignedGift.name === 'hair band' 
             ? assignedGift.men_given + 1 
             : assignedGift.men_given
         })
