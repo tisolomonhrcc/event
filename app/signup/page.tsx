@@ -58,7 +58,7 @@ export default function SignupPage() {
       }
 
       const hairBand = gifts.find(g => g.name === 'hair band');
-      const tissue = gifts.find(g => g.name === 'tissue');
+      const tissue = gifts.find(g => g.name === 'branded tissue');
 
       if (!hairBand || !tissue) {
         throw new Error('Gifts not configured correctly');

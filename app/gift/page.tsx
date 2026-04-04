@@ -12,7 +12,7 @@ export default function GiftPage() {
   const [rollingGift, setRollingGift] = useState('🎁');
   const [showConfetti, setShowConfetti] = useState(false);
 
-  const gifts = ['hair band', 'tissue', 'Surprise Gift', 'Special Reward'];
+  const gifts = ['hair band', 'branded tissue', 'Surprise Gift', 'Special Reward'];
 
   useEffect(() => {
     const code = localStorage.getItem('ticketCode');
